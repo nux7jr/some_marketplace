@@ -1,4 +1,4 @@
-# the_greatest_tree
+# the greatest tree
 
 ## Project setup
 ```
