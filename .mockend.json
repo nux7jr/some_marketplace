@@ -8,17 +8,17 @@
   },
   "default-T-short": {
     "size": { "int": { "min": 0, "max": 1000000 }},
-    "color": {"string": {}},
-    "quantity": {"string": {}},
-    "price": {"string": {}},
-    "pic": {"string": {}}
+    "color": { "string": {}},
+    "quantity": { "string": {}},
+    "price": { "string": {}},
+    "pic": { "string": {}}
   },
   "long-T-short": {
     "size": { "int": { "min": 0, "max": 1000000 }},
-    "color": {"string": {}},
-    "quantity": {"string": {}},
-    "price": {"string": {}},
-    "pic": {"string": {}}
+    "color": { "string": {}},
+    "quantity": { "string": {}},
+    "price": { "string": {}},
+    "pic": { "string": {}}
   },
   "default-Jackets": {
     "quantity": {"string": {}},
