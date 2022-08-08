@@ -1,10 +1,6 @@
 <template>
   <div>
-    <h1>Каталог товаров</h1>
-    <div class="option">
-      <a href="#">All</a> | <router-link to="/jackets">jackets</router-link> |
-      <a href="#">T-short</a>
-    </div>
+    <h1>Jackets</h1>
     <section v-if="errored">
       <p>
         We're sorry, we're not able to retrieve this information at the moment,
@@ -33,7 +29,7 @@ export default {
   },
   created() {
     axios
-      .get("Product")
+      .get("Product?category_contains=jacket")
       .then((res) => {
         this.info = res.data;
         console.log(res.data);
@@ -44,7 +40,6 @@ export default {
       })
       .finally(() => (this.loading = false));
   },
-  mounted() {},
 };
 </script>
 <style scoped lang="scss">
