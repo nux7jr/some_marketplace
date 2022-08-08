@@ -1,10 +1,22 @@
 {
-  "Sleevelesstshort": {
+  "Tshort": {
     "title": {
       "loremWord": {}
     },
     "price": { "int": { "min": 1200, "max": 5500 }},
     "size": { "int": { "min": 42, "max": 54 }},
+    "description": {
+      "loremParagraphs": { "minLength": 200, "maxLength": 500 }
+    },
+    "quantity": { "int": { "min": 1, "max": 50 }},
+    "pic": { "string": {}}
+  },
+  "Jackets": {
+    "title": {
+      "loremWord": {}
+    },
+    "price": { "int": { "min": 1200, "max": 5500 }},
+    "size": { "int": { "min": 50, "max": 50 }},
     "description": {
       "loremParagraphs": { "minLength": 200, "maxLength": 500 }
     },
@@ -25,18 +37,6 @@
       "Blue",
       "Black"
     ]},
-    "quantity": { "int": { "min": 1, "max": 50 }},
-    "pic": { "string": {}}
-  },
-  "Jackets": {
-    "title": {
-      "loremWord": {}
-    },
-    "price": { "int": { "min": 1200, "max": 5500 }},
-    "size": { "int": { "min": 50, "max": 50 }},
-    "description": {
-      "loremParagraphs": { "minLength": 200, "maxLength": 500 }
-    },
     "quantity": { "int": { "min": 1, "max": 50 }},
     "pic": { "string": {}}
   }
