@@ -1,26 +1,26 @@
 {
-  "sleeveless-T-short": {
-    "size": { "int": { "min": 0, "max": 1000000 }},
-    "color": { "string": {}},
-    "quantity": {"string": {}},
-    "price": {"string": {}},
-    "pic": {"string": {}}
-  },
-  "default-T-short": {
+  "Sleevelesstshort": {
     "size": { "int": { "min": 0, "max": 1000000 }},
     "color": { "string": {}},
     "quantity": { "string": {}},
     "price": { "string": {}},
     "pic": { "string": {}}
   },
-  "long-T-short": {
+  "Defaulttshort": {
     "size": { "int": { "min": 0, "max": 1000000 }},
     "color": { "string": {}},
     "quantity": { "string": {}},
     "price": { "string": {}},
     "pic": { "string": {}}
   },
-  "default-Jackets": {
+  "Longtshort": {
+    "size": { "int": { "min": 0, "max": 1000000 }},
+    "color": { "string": {}},
+    "quantity": { "string": {}},
+    "price": { "string": {}},
+    "pic": { "string": {}}
+  },
+  "Jackets": {
     "quantity": {"string": {}},
     "price": {"string": {}},
     "pic": {"string": {}}
