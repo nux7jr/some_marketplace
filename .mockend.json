@@ -3,7 +3,9 @@
     "name": { "regexp": "[A-Z][a-z]{5,10}" },
     "price": { "int": { "min": 1200, "max": 5500 }},
     "size": { "int": { "min": 42, "max": 54 }},
-    "loremParagraphs": { "minLength": 200, "maxLength": 500 },
+    "description": {
+      "loremParagraphs": { "minLength": 200, "maxLength": 500 }
+    },
     "color": { "string": [
       "Green",
       "Blue"
