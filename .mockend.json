@@ -1,6 +1,8 @@
 {
   "Sleevelesstshort": {
-    "name": { "regexp": "[A-Z][a-z]{5,10}" },
+    "title": {
+      "loremWord": {}
+    },
     "price": { "int": { "min": 1200, "max": 5500 }},
     "size": { "int": { "min": 42, "max": 54 }},
     "description": {
@@ -8,28 +10,56 @@
     },
     "color": { "string": [
       "Green",
-      "Blue"
+      "Blue",
+      "Black"
     ]},
     "quantity": { "int": { "min": 1, "max": 50 }},
     "pic": { "string": {}}
   },
   "Defaulttshort": {
-    "size": { "int": { "min": 0, "max": 1000000 }},
-    "color": { "string": {}},
-    "quantity": { "string": {}},
-    "price": { "string": {}},
+    "title": {
+      "loremWord": {}
+    },
+    "price": { "int": { "min": 1200, "max": 5500 }},
+    "size": { "int": { "min": 42, "max": 54 }},
+    "description": {
+      "loremParagraphs": { "minLength": 200, "maxLength": 500 }
+    },
+    "color": { "string": [
+      "Green",
+      "Blue",
+      "Black"
+    ]},
+    "quantity": { "int": { "min": 1, "max": 50 }},
     "pic": { "string": {}}
   },
   "Longtshort": {
-    "size": { "int": { "min": 0, "max": 1000000 }},
-    "color": { "string": {}},
-    "quantity": { "string": {}},
-    "price": { "string": {}},
+    "title": {
+      "loremWord": {}
+    },
+    "price": { "int": { "min": 1200, "max": 5500 }},
+    "size": { "int": { "min": 42, "max": 54 }},
+    "description": {
+      "loremParagraphs": { "minLength": 200, "maxLength": 500 }
+    },
+    "color": { "string": [
+      "Green",
+      "Blue",
+      "Black"
+    ]},
+    "quantity": { "int": { "min": 1, "max": 50 }},
     "pic": { "string": {}}
   },
   "Jackets": {
-    "quantity": {"string": {}},
-    "price": {"string": {}},
-    "pic": {"string": {}}
+    "title": {
+      "loremWord": {}
+    },
+    "price": { "int": { "min": 1200, "max": 5500 }},
+    "size": { "int": { "min": 50, "max": 50 }},
+    "description": {
+      "loremParagraphs": { "minLength": 200, "maxLength": 500 }
+    },
+    "quantity": { "int": { "min": 1, "max": 50 }},
+    "pic": { "string": {}}
   }
 }
