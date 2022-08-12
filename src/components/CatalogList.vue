@@ -22,11 +22,7 @@
       <div v-else class="product">
         <div v-for="item in allProducts" v-bind:key="item.id">
           <article class="product__item">
-            <img
-              class="product__img"
-              src="https://via.placeholder.com/350/0000FFF/000000?Text=SMP.com"
-              alt=""
-            />
+            <img class="product__img" :src="`${item.avatar}`" alt="" />
             <h1 class="product__heading">{{ item.title }}</h1>
             <p class="product__price">{{ item.price }} рублей.</p>
           </article>
@@ -97,8 +93,8 @@ export default {
         .finally(() => (this.loading = false));
     },
     priceFilther() {
-      this.$route.query.push({
-        query: { price_orde: "?price_order=asc" },
+      this.$router.push({
+        query: { price_order: "?price_order=asc" },
       });
     },
   },
