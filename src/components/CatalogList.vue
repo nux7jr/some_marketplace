@@ -9,7 +9,8 @@
     </section>
     <section v-else>
       <CatalogNavigation />
-      <button v-on:click="priceFilther">Click</button>
+      <button v-on:click="priceAsc">Asc</button>
+      <!-- <button v-on:click="priceDesc">Desc</button> -->
       <div class="search-option">
         <input
           class="search__input"
@@ -92,11 +93,16 @@ export default {
         })
         .finally(() => (this.loading = false));
     },
-    priceFilther() {
+    priceAsc() {
       this.$router.push({
-        query: { price_order: "?price_order=asc" },
+        query: { price: "?price_order=asc" },
       });
     },
+    // priceDesc() {
+    //   this.$router.push({
+    //     query: { price: "?price_order=desc" },
+    //   });
+    // },
   },
 };
 </script>
