@@ -9,8 +9,8 @@
     </section>
     <section v-else>
       <CatalogNavigation />
-      <button v-on:click="priceAsc">Asc</button>
-      <!-- <button v-on:click="priceDesc">Desc</button> -->
+      <!-- <button v-on:click="priceAsc">Asc</button> -->
+      <button v-on:click="priceDesc">Desc</button>
       <div class="search-option">
         <input
           class="search__input"
@@ -23,9 +23,10 @@
       <div v-else class="product">
         <div v-for="item in allProducts" v-bind:key="item.id">
           <article class="product__item">
-            <img class="product__img" :src="`${item.avatar}`" alt="" />
+            <img class="product__img" :src="`${item.pic}`" alt="" />
             <h1 class="product__heading">{{ item.title }}</h1>
             <p class="product__price">{{ item.price }} рублей.</p>
+            <p>{{ item.pic }}</p>
           </article>
         </div>
         <!-- <div v-show="availability">Товара, с подходящем именем нет</div> -->
@@ -93,16 +94,16 @@ export default {
         })
         .finally(() => (this.loading = false));
     },
-    priceAsc() {
-      this.$router.push({
-        query: { price: "?price_order=asc" },
-      });
-    },
-    // priceDesc() {
+    // priceAsc() {
     //   this.$router.push({
-    //     query: { price: "?price_order=desc" },
+    //     query: { price: "?price_order=asc" },
     //   });
     // },
+    priceDesc() {
+      this.$router.push({
+        query: { price: "?price_order=desc" },
+      });
+    },
   },
 };
 </script>

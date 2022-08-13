@@ -15,9 +15,8 @@
       "loremParagraphs": { "minLength": 200, "maxLength": 500 }
     },
     "quantity": { "int": { "min": 1, "max": 50 }},
-    "color": { "regexp": "#[0-9A-F]{6}" },
     "pic": {
-      "regexp": "https://via\\.placeholder\\.com/350/[0-9A-F]{6}/000000?Text=SMP.com"
+      "regexp": "https://via\\.placeholder\\.com/350/[0-9A-F]{6}\\/000000?Text=SMP.com"
     }
   }
 }
