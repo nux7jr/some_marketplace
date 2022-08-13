@@ -46,6 +46,8 @@ export default {
   data() {
     return {
       products: [],
+      productsDefaultPicture:
+        "https://via.placeholder.com/350/00FFFF/00000Text=SMPcom",
       loading: true,
       errored: false,
       search: "",
@@ -87,6 +89,7 @@ export default {
         })
         .then((res) => {
           this.products = res.data;
+          // this.productsDefaultPicture = res.data.pic;
         })
         .catch((error) => {
           console.log(error);
