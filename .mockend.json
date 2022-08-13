@@ -7,7 +7,7 @@
       ]
     },
     "title": {
-      "loremWord": {}
+      "regexp": "[A-Z][a-z]{5,10}"
     },
     "price": { "int": { "min": 1200, "max": 5500 }},
     "size": { "int": { "min": 42, "max": 54 }},
@@ -16,7 +16,7 @@
     },
     "quantity": { "int": { "min": 1, "max": 50 }},
     "pic": {
-      "regexp": "https://via\\.placeholder\\.com/350/[0-9A-F]{6}"
+      "regexp": "https://via\\.placeholder\\.com/350\\/[0-9A-F]{6}\\/000000?Text=SMP.com"
     }
   }
 }
