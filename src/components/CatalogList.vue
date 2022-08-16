@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Каталог товаров</h1>
+    <h1>Catalog:</h1>
     <section v-if="errored">
       <p>
         We're sorry, we're not able to retrieve this information at the moment,
@@ -9,15 +9,16 @@
     </section>
     <section v-else>
       <CatalogNavigation />
-      <!-- <button v-on:click="priceAsc">Asc</button> -->
-      <button v-on:click="priceDesc">Desc</button>
-      <div class="search-option">
-        <input
-          class="search__input"
-          type="search"
-          v-model="search"
-          placeholder="Поиск"
-        />
+      <div class="option">
+        <button v-on:click="priceDesc">Desc</button>
+        <div class="search-option">
+          <input
+            class="search__input"
+            type="search"
+            v-model="search"
+            placeholder="Поиск"
+          />
+        </div>
       </div>
       <div v-if="loading">Loading...</div>
       <div v-else class="product">
@@ -26,10 +27,8 @@
             <img class="product__img" :src="`${item.pic}`" alt="" />
             <h1 class="product__heading">{{ item.title }}</h1>
             <p class="product__price">{{ item.price }} рублей.</p>
-            <p>{{ item.pic }}</p>
           </article>
         </div>
-        <!-- <div v-show="availability">Товара, с подходящем именем нет</div> -->
       </div>
     </section>
   </div>
@@ -52,7 +51,7 @@ export default {
       errored: false,
       search: "",
       currSort: null,
-      availability: true,
+      // availability: true,
     };
   },
   computed: {

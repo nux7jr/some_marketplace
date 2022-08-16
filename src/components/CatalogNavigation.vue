@@ -10,8 +10,7 @@
       <router-link :to="{ query: { ...$route.query, category: 't-short' } }"
         >T-shorts</router-link
       >
-      | <router-link to="?price_order=asc">Price ascending</router-link> |
-      <router-link to="?price_order=desc">Price decreasing</router-link>
+      <p>search and price</p>
     </div>
   </div>
 </template>

@@ -1,8 +1,13 @@
 <template>
   <div id="app">
     <nav>
-      <router-link to="/">Home</router-link> |
+      <div class="nav__item">
+        <router-link to="/">
+          <img class="nav__logo" src="@/assets/logo.61fb3cf.svg" alt=""
+        /></router-link>
+      </div>
       <router-link to="/about">About</router-link>
+      <router-link to="/card">Card</router-link>
     </nav>
     <router-view />
   </div>
@@ -22,17 +27,23 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #000000;
 }
 nav {
   padding: 30px;
-
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  gap: 10px;
   a {
     font-weight: bold;
-    color: #2c3e50;
+    color: #000000;
+    align-self: center;
+    font-weight: 500;
+    font-size: 1.3rem;
 
     &.router-link-exact-active {
-      color: #42b983;
+      color: #2a6d4f;
     }
   }
 }
@@ -63,5 +74,9 @@ a {
 img {
   width: 100%;
   height: auto;
+}
+.nav__logo {
+  width: 150px;
+  margin-top: 4px;
 }
 </style>
