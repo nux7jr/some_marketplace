@@ -10,7 +10,6 @@
     <section v-else>
       <CatalogNavigation />
       <div class="option">
-        <button v-on:click="priceDesc">Desc</button>
         <div class="search-option">
           <input
             class="search__input"
@@ -22,13 +21,23 @@
       </div>
       <div v-if="loading">Loading...</div>
       <div v-else class="product">
-        <div v-for="item in allProducts" v-bind:key="item.id">
-          <article class="product__item">
-            <img class="product__img" :src="`${item.pic}`" alt="" />
-            <h1 class="product__heading">{{ item.title }}</h1>
-            <p class="product__price">{{ item.price }} рублей.</p>
-          </article>
-        </div>
+        <TransitionGroup
+          tag="div"
+          :css="false"
+          @before-enter="onBeforeEnter"
+          @enter="onEnter"
+          @leave="onLeave"
+        >
+          <div v-for="item in allProducts" v-bind:key="item.id">
+            <article class="product__item">
+              <div class="product__wrapper">
+                <img class="product__img" :src="`${item.pic}`" alt="" />
+              </div>
+              <h1 class="product__heading">{{ item.title }}</h1>
+              <p class="product__price">{{ item.price }} рублей.</p>
+            </article>
+          </div>
+        </TransitionGroup>
       </div>
     </section>
   </div>
@@ -37,6 +46,7 @@
 <script>
 import axios from "@/axios/axios.js";
 import CatalogNavigation from "@/components/CatalogNavigation.vue";
+import gsap from "gsap";
 export default {
   name: "CatalogList",
   components: {
@@ -88,7 +98,6 @@ export default {
         })
         .then((res) => {
           this.products = res.data;
-          // this.productsDefaultPicture = res.data.pic;
         })
         .catch((error) => {
           console.log(error);
@@ -96,14 +105,24 @@ export default {
         })
         .finally(() => (this.loading = false));
     },
-    // priceAsc() {
-    //   this.$router.push({
-    //     query: { price: "?price_order=asc" },
-    //   });
-    // },
-    priceDesc() {
-      this.$router.push({
-        query: { price: "?price_order=desc" },
+    onBeforeEnter(el) {
+      el.style.opacity = 0;
+      el.style.height = 0;
+    },
+    onEnter(el, done) {
+      gsap.to(el, {
+        opacity: 1,
+        height: "600px",
+        delay: el.dataset.index * 0.15,
+        onComplete: done,
+      });
+    },
+    onLeave(el, done) {
+      gsap.to(el, {
+        opacity: 0,
+        height: 0,
+        delay: el.dataset.index * 0.15,
+        onComplete: done,
       });
     },
   },
@@ -144,9 +163,9 @@ a {
   text-align: center;
   gap: 20px;
 }
-// .product__item {
-//   flex: 0 0 50%;
-// }
+.product__wrapper {
+  min-width: 350px;
+}
 .product__img {
   border-radius: 10px;
 }

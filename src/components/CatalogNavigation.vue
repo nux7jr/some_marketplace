@@ -10,13 +10,20 @@
       <router-link :to="{ query: { ...$route.query, category: 't-short' } }"
         >T-shorts</router-link
       >
-      <p>search and price</p>
+      <button v-on:click="priceDesc">Desc</button>
     </div>
   </div>
 </template>
 <script>
 export default {
   name: "CatalogNavigation",
+  methods: {
+    priceDesc() {
+      this.$router.push({
+        query: { price: "?price_order=desc" },
+      });
+    },
+  },
 };
 </script>
 <style scoped>
