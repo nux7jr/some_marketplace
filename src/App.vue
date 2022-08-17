@@ -28,6 +28,21 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #000000;
+  background: -webkit-linear-gradient(
+    45deg,
+    rgb(212, 232, 228),
+    rgb(184, 191, 197) 11%
+  );
+  background: -moz-linear-gradient(
+    45deg,
+    rgb(212, 232, 228),
+    rgb(184, 191, 197) 11%
+  );
+  background: linear-gradient(
+    45deg,
+    rgb(212, 232, 228),
+    rgb(184, 191, 197) 11%
+  );
 }
 nav {
   padding: 30px;
@@ -35,6 +50,8 @@ nav {
   flex-wrap: wrap;
   justify-content: left;
   gap: 10px;
+
+  position: fixed;
   a {
     font-weight: bold;
     color: #000000;
@@ -79,4 +96,5 @@ img {
   width: 150px;
   margin-top: 4px;
 }
+// BG
 </style>

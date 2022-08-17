@@ -15,3 +15,8 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+.home {
+  min-height: 100vh;
+}
+</style>

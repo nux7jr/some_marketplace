@@ -1,8 +1,8 @@
 <template>
-  <div class="container">
-    <h1>Catalog:</h1>
-    <section v-if="errored">
-      <p>
+  <div class="catalog container">
+    <h1 class="catalog__heading">Catalog:</h1>
+    <section class="error" v-if="errored">
+      <p class="error__message">
         We're sorry, we're not able to retrieve this information at the moment,
         please try back later
       </p>
@@ -10,7 +10,7 @@
     <section v-else>
       <CatalogNavigation />
       <div class="option">
-        <div class="search-option">
+        <div class="search">
           <input
             class="search__input"
             type="search"
@@ -60,8 +60,6 @@ export default {
       loading: true,
       errored: false,
       search: "",
-      currSort: null,
-      // availability: true,
     };
   },
   computed: {
@@ -78,11 +76,6 @@ export default {
     "$route.query.price": function () {
       this.getData();
     },
-    // allProducts: function () {
-    //   if ((this.allProducts.length = 0)) {
-    //     this.availability = false;
-    //   }
-    // },
   },
   created() {
     this.getData();
@@ -112,7 +105,7 @@ export default {
     onEnter(el, done) {
       gsap.to(el, {
         opacity: 1,
-        height: "600px",
+        height: "660px",
         delay: el.dataset.index * 0.15,
         onComplete: done,
       });
@@ -131,6 +124,10 @@ export default {
 <style scoped lang="scss">
 a {
   color: #42b983;
+}
+.catalog__heading {
+  margin: 0;
+  padding-top: 37px;
 }
 .container {
   padding: 0 15px;
@@ -164,7 +161,7 @@ a {
   gap: 20px;
 }
 .product__wrapper {
-  min-width: 350px;
+  min-height: 550px;
 }
 .product__img {
   border-radius: 10px;

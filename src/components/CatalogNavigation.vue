@@ -10,7 +10,10 @@
       <router-link :to="{ query: { ...$route.query, category: 't-short' } }"
         >T-shorts</router-link
       >
-      <button v-on:click="priceDesc">Desc</button>
+      |
+      <!-- <button class="option__button" v-on:click="priceDesc">
+        Sort by price
+      </button> -->
     </div>
   </div>
 </template>
@@ -32,6 +35,17 @@ a {
   color: #2c3e50;
 }
 .router-link-exact-active {
-  color: #42b983;
+  color: #000000;
 }
+.option__button {
+  font-weight: bold;
+  color: #2c3e50;
+  background: inherit;
+  border: none;
+  font-family: "Roboto", sans-serif, Helvetica, Arial;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+/* click на option bnt  */
 </style>
