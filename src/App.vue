@@ -1,22 +1,30 @@
 <template>
   <div id="app">
     <nav>
-      <div class="nav__item">
+      <div class="nav__item" v-on:click="scrolltoTop">
         <router-link to="/">
-          <img class="nav__logo" src="@/assets/logo.61fb3cf.svg" alt=""
+          <img class="nav__logo" src="@/assets/logo.61fb3cf.svg" alt="logo"
         /></router-link>
       </div>
       <router-link to="/about">About</router-link>
-      <router-link to="/card">Card</router-link>
+      <router-link class="nav__card" to="/card"
+        ><img class="nav__card-img" src="@/assets/iconCard.svg" alt="icon card"
+      /></router-link>
     </nav>
     <router-view />
   </div>
 </template>
 <script>
+import scroll from "@/directive/scroll.js";
 export default {
   name: "MainPage",
   data() {
     return {};
+  },
+  methods: {
+    scrolltoTop() {
+      scroll();
+    },
   },
 };
 </script>
@@ -45,7 +53,7 @@ export default {
   );
 }
 nav {
-  padding: 30px;
+  padding: 30px 30px 0px 30px;
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
@@ -54,14 +62,20 @@ nav {
   position: fixed;
   a {
     font-weight: bold;
-    color: #000000;
+    color: #2c3e50;
     align-self: center;
     font-weight: 500;
     font-size: 1.3rem;
 
     &.router-link-exact-active {
-      color: #2a6d4f;
+      color: #000000;
+      text-decoration: underline;
     }
+  }
+}
+@media (max-width: 1014px) {
+  nav {
+    position: static;
   }
 }
 // basic
@@ -94,7 +108,16 @@ img {
 }
 .nav__logo {
   width: 150px;
-  margin-top: 4px;
+  margin-top: 6px;
+  border-radius: 10px;
+}
+.nav__card {
+  background-color: rgba(240, 248, 255, 0.418);
+  border-radius: 10px;
+  padding: 7px 10px 7px 10px;
+}
+.nav__card-img {
+  margin-top: 5px;
 }
 // BG
 </style>

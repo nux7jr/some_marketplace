@@ -2,18 +2,16 @@
   <div class="catalog-navigation">
     <div class="option">
       <p>Categories:</p>
-      <router-link to="">All</router-link> |
+      <router-link to="">All</router-link>
       <router-link :to="{ query: { ...$route.query, category: 'jacket' } }"
         >Jackets</router-link
       >
-      |
       <router-link :to="{ query: { ...$route.query, category: 't-short' } }"
         >T-shorts</router-link
       >
-      |
-      <!-- <button class="option__button" v-on:click="priceDesc">
+      <button class="option__button" v-on:click="priceDesc">
         Sort by price
-      </button> -->
+      </button>
     </div>
   </div>
 </template>
@@ -36,6 +34,14 @@ a {
 }
 .router-link-exact-active {
   color: #000000;
+  text-decoration: underline;
+}
+.option {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  gap: 5px;
 }
 .option__button {
   font-weight: bold;
@@ -47,5 +53,7 @@ a {
   margin: 0;
   padding: 0;
 }
-/* click на option bnt  */
+.option__button:active {
+  color: #000000;
+}
 </style>

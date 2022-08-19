@@ -15,7 +15,7 @@
             class="search__input"
             type="search"
             v-model="search"
-            placeholder="Поиск"
+            placeholder="search"
           />
         </div>
       </div>
@@ -29,17 +29,21 @@
           @leave="onLeave"
         >
           <div v-for="item in allProducts" v-bind:key="item.id">
-            <article class="product__item">
-              <div class="product__wrapper">
-                <img class="product__img" :src="`${item.pic}`" alt="" />
-              </div>
-              <h1 class="product__heading">{{ item.title }}</h1>
-              <p class="product__price">{{ item.price }} рублей.</p>
-            </article>
+            <router-link to="/products">
+              <article class="product__item">
+                <div class="product__wrapper">
+                  <img class="product__img" :src="`${item.pic}`" alt="" />
+                </div>
+                <h1 class="product__heading">{{ item.title }}</h1>
+                <p class="product__price">{{ item.price }} рублей.</p>
+              </article>
+            </router-link>
           </div>
         </TransitionGroup>
+        <div v-show="!available" class="search-error">No such product.</div>
       </div>
     </section>
+    <button class="catalog__btn btnScroll" v-on:click="scrolltoTop"></button>
   </div>
 </template>
 
@@ -47,6 +51,7 @@
 import axios from "@/axios/axios.js";
 import CatalogNavigation from "@/components/CatalogNavigation.vue";
 import gsap from "gsap";
+import scroll from "@/directive/scroll.js";
 export default {
   name: "CatalogList",
   components: {
@@ -60,6 +65,7 @@ export default {
       loading: true,
       errored: false,
       search: "",
+      available: true,
     };
   },
   computed: {
@@ -76,9 +82,17 @@ export default {
     "$route.query.price": function () {
       this.getData();
     },
+    allProducts: function () {
+      if (this.allProducts.length <= 0) {
+        this.available = false;
+      } else {
+        this.available = true;
+      }
+    },
   },
   created() {
     this.getData();
+    window.addEventListener("scroll", this.scrollAppearance);
   },
   methods: {
     getData() {
@@ -118,13 +132,24 @@ export default {
         onComplete: done,
       });
     },
+    scrollAppearance() {
+      const scrollBtn = document.querySelector(".catalog__btn");
+      if (window.scrollY > 220) {
+        scrollBtn.classList.add("catalog__btn--active");
+      } else {
+        scrollBtn.classList.remove("catalog__btn--active");
+      }
+    },
+    scrolltoTop() {
+      scroll();
+    },
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.scrollAppearance);
   },
 };
 </script>
 <style scoped lang="scss">
-a {
-  color: #42b983;
-}
 .catalog__heading {
   margin: 0;
   padding-top: 37px;
@@ -169,11 +194,54 @@ a {
 .product__heading {
   text-align: center;
   font-size: 1.1rem;
+  color: #000;
 }
 .product__price {
   padding-top: 0.5rem;
   text-align: center;
   font-weight: 500;
   font-size: 1.3rem;
+  color: #000;
+}
+.search {
+  display: flex;
+  justify-content: center;
+}
+.search__input {
+  margin-bottom: 20px;
+  width: 350px;
+  padding: 0.5rem;
+  background-color: rgba(240, 248, 255, 0.418);
+  border: 2px solid rgba(0, 0, 0);
+  border-radius: 10px;
+  font-size: 1.1rem;
+  color: rgb(0, 0, 0);
+}
+::placeholder {
+  color: rgb(0, 0, 0);
+  font-size: 1.1em;
+}
+.catalog__btn {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  width: 50px;
+  height: 50px;
+  border: none;
+  padding: 0;
+  border-radius: 10px;
+  z-index: 99;
+  background: url(../assets/page-up-button-50.png);
+  background-size: 95%;
+  background-origin: border-box;
+  background-repeat: no-repeat;
+
+  display: none;
+  outline: none;
+  pointer-events: none;
+}
+.catalog__btn--active {
+  display: block;
+  pointer-events: auto;
 }
 </style>
