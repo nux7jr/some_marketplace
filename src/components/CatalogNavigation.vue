@@ -42,6 +42,8 @@ a {
   text-align: center;
   align-items: center;
   gap: 5px;
+
+  font-size: 1.1rem;
 }
 .option__button {
   font-weight: bold;
